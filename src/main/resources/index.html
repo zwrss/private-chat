@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
+<script language="javascript" type="text/javascript" src="public/js/RSA.js"></script>
+<script language="javascript" type="text/javascript" src="public/js/index.js"></script>
+
+<h2>CIPHER</h2>
+
+<br/>message <textarea name="message" id="message" cols="100" rows="12" >This is some random sample text!
+It contains new lines.
+And exactly 2 numbers in 1 line.
+This is some random sample text!
+It contains new lines.
+And exactly 2 numbers in 1 line.
+This is some random sample text!
+It contains new lines.
+And exactly 2 numbers in 1 line.
+This is some random sample text!
+It contains new lines.
+And exactly 2 numbers in 1 line.
+This is some random sample text!
+It contains new lines.
+And exactly 2 numbers in 1 line.
+This is some random sample text!
+It contains new lines.
+And exactly 2 numbers in 1 line.
+This is some random sample text!
+It contains new lines.
+And exactly 2 numbers in 1 line.</textarea>
+
+<table width="100%">
+    <tr>
+        <td width="33%">
+            <br/>Base64 <input type="radio" id="cipher_base64" name="cipher" value="base64" />
+        </td>
+        <td width="33%">
+            <br/>Ceasar's Cipher <input type="radio" id="cipher_ceasar" name="cipher" value="ceasar" />
+            <br/>
+            <br/>shift  <input type="text" name="shift" id="shift" value="3" />
+            <br/>
+            <br/>base64 <input type="checkbox" name="base64" id="base64" />
+        </td>
+        <td width="33%">
+            <br/>RSA <input type="radio" id="cipher_rsa" name="cipher" value="rsa" checked />
+            <br/>
+            <br/>key length [bit]  <input type="text" name="strength" id="strength" value="1024" />
+            <br/>
+            <br/>modulus <input type="text" name="modulus" id="modulus" value="73351292863923914321521474494823187521048675683608590855604295206407451595246009813572380026036915695285392213465539386067586993693214183874616539512970298959299802317772918585788327944083600331890819008493240300453481033195482930716673926903878639916837609471558682092612698940007515533446667931121463691471" />
+            <br/>
+            <br/>private key <input type="text" name="privateKey" id="privateKey" value="48377806166749275563932499405896477675356027247940823216543937867185798674838847188334109804315419442650957368125402054158496425155186991833566158107765497981250677125057175989736606787698230957447972521875715741929117176004646283570756849676977902278440000859240036582637821858746555076252336761237611846977" />
+            <br/>
+            <br/>public key <input type="text" name="publicKey" id="publicKey" value="65537" />
+            <br/>
+            <br/><button id="actionKey">Generate key pair</button>
+            <br/>
+            <br/><button id="actionKeyJS">Generate key pair in browser</button>
+        </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+<br/><button id="actionEncrypt">Encrypt</button>
+<br/>
+<br/><button id="actionDecrypt">Decrypt</button>
+<br/>
+<br/>
+<br/>
+<br/><button id="actionEncryptJS">Encrypt in browser</button>
+<br/>
+<br/><button id="actionDecryptJS">Decrypt in browser</button>
