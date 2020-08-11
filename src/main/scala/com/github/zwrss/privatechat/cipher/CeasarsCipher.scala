@@ -30,10 +30,13 @@ object CeasarsCipher extends Logging {
 
   case object AlphanumericMode extends Mode
 
+  case class CustomAlphabetMode(chars: Seq[Char]) extends Mode
+
   def encrypt(msg: String)(shift: Int, mode: Mode = AlphanumericMode): String = {
     debug(s"encrypting $msg")
     val (encoded, alphabet) = mode match {
       case Base64Mode => (Base64.getEncoder encodeToString msg.trim.getBytes(StandardCharsets.UTF_8)) -> base64Chars
+      case CustomAlphabetMode(abet) => msg.trim -> abet
       case _ => msg.trim -> alphanumericChars
     }
     debug(s"encrypting encoded $encoded")
@@ -53,6 +56,7 @@ object CeasarsCipher extends Logging {
     debug(s"decrypting $msg")
     val alphabet = mode match {
       case Base64Mode => base64Chars
+      case CustomAlphabetMode(abet) => abet
       case _ => alphanumericChars
     }
     val encoded: String = msg.trim.map {

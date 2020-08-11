@@ -28,6 +28,7 @@ function getEncrypted() {
     var message = document.getElementById("message").value;
     var shift = document.getElementById("shift").value;
     var base64 = document.getElementById("base64").checked;
+    var abet = document.getElementById("abet").value;
     xhttp.open("POST", "encrypt", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(
@@ -36,7 +37,8 @@ function getEncrypted() {
         "&publicKey=" + encodeURIComponent(publicKey) +
         "&modulus=" + encodeURIComponent(modulus) +
         "&shift=" + encodeURIComponent(shift) +
-        "&base64=" + encodeURIComponent(base64)
+        "&base64=" + encodeURIComponent(base64) +
+        "&abet=" + encodeURIComponent(abet)
     );
 }
 
@@ -56,6 +58,7 @@ function getDecrypted() {
     var message = document.getElementById("message").value;
     var shift = document.getElementById("shift").value;
     var base64 = document.getElementById("base64").checked;
+    var abet = document.getElementById("abet").value;
     xhttp.open("POST", "decrypt", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(
@@ -64,7 +67,8 @@ function getDecrypted() {
         "&privateKey=" + encodeURIComponent(privateKey) +
         "&modulus=" + encodeURIComponent(modulus) +
         "&shift=" + encodeURIComponent(shift) +
-        "&base64=" + encodeURIComponent(base64)
+        "&base64=" + encodeURIComponent(base64) +
+        "&abet=" + encodeURIComponent(abet)
     );
 }
 
@@ -78,8 +82,9 @@ function getEncryptedJS() {
     var message = document.getElementById("message").value;
     var shift = document.getElementById("shift").value;
     var base64 = document.getElementById("base64").checked;
+    var abet = document.getElementById("abet").value;
     if (cipher === 'ceasar') {
-        document.getElementById("message").value = CeasarCipher.encrypt(message, shift, base64);
+        document.getElementById("message").value = CeasarCipher.encrypt(message, shift, base64, abet);
     } else if (cipher === 'base64') {
         document.getElementById("message").value = B64.encode(message);
     } else {
@@ -96,8 +101,9 @@ function getDecryptedJS() {
     var message = document.getElementById("message").value;
     var shift = document.getElementById("shift").value;
     var base64 = document.getElementById("base64").checked;
+    var abet = document.getElementById("abet").value;
     if (cipher === 'ceasar') {
-        document.getElementById("message").value = CeasarCipher.decrypt(message, shift, base64);
+        document.getElementById("message").value = CeasarCipher.decrypt(message, shift, base64, abet);
     } else if (cipher === 'base64') {
         document.getElementById("message").value = B64.decode(message);
     } else {

@@ -24,8 +24,19 @@ class EncryptServlet extends HttpServlet with Logging {
           message <- Option(req getParameter "message")
           base64 <- Try((req getParameter "base64").toBoolean).toOption
           shift <- Try((req getParameter "shift").toInt).toOption
+          abet <- Option.apply {
+            req getParameter "abet" match {
+              case null => ""
+              case x => x
+            }
+          }
         } {
-          val cipher = CeasarsCipher(shift, if (base64) CeasarsCipher.Base64Mode else CeasarsCipher.AlphanumericMode)
+          val mode = (base64, abet) match {
+            case (true, _) => CeasarsCipher.Base64Mode
+            case (_, abet) if abet.trim.nonEmpty => CeasarsCipher.CustomAlphabetMode(abet.toSeq)
+            case (_, _) => CeasarsCipher.AlphanumericMode
+          }
+          val cipher = CeasarsCipher(shift, mode)
           val encrypted = cipher encrypt message
           resp.getWriter println encrypted
         }

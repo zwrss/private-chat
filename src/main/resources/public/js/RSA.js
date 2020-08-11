@@ -191,8 +191,11 @@ class CeasarCipher {
         'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'
     ];
 
-    static encrypt(message, shift, base64) {
+    static encrypt(message, shift, base64, customAlphabet) {
         var alphabet = CeasarCipher.alphanumericChars;
+        if (customAlphabet != null && customAlphabet.length > 0) {
+            alphabet = customAlphabet;
+        }
         if (base64 == 'true' || base64 == true) {
             alphabet = CeasarCipher.base64Chars;
             message = B64.encode(message);
@@ -216,9 +219,12 @@ class CeasarCipher {
         return encrypted;
     }
 
-    static decrypt(message, shift, base64) {
+    static decrypt(message, shift, base64, customAlphabet) {
         var decrypted = '';
         var alphabet = CeasarCipher.alphanumericChars;
+        if (customAlphabet != null && customAlphabet.length > 0) {
+            alphabet = customAlphabet;
+        }
         if (base64 == 'true' || base64 == true) {
             alphabet = CeasarCipher.base64Chars;
         }
