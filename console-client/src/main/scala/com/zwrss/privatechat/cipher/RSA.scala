@@ -4,19 +4,30 @@ import java.nio.charset.StandardCharsets
 import java.security.SecureRandom
 import java.util.Base64
 
+import play.api.libs.json.Format
+import play.api.libs.json.Json
+
 case class PrivateKey(modulus: BigInt, privateKey: BigInt) {
   lazy val modulusBytes: Int = modulus.toByteArray.length
+}
+
+object PrivateKey {
+  implicit def format: Format[PrivateKey] = Json.using[Json.WithDefaultValues].format
 }
 
 case class PublicKey(modulus: BigInt, publicKey: BigInt) {
   lazy val modulusBytes: Int = modulus.toByteArray.length
 }
 
+object PublicKey {
+  implicit def format: Format[PublicKey] = Json.using[Json.WithDefaultValues].format
+}
+
 
 case class RSA(privateKey: BigInt, publicKey: BigInt, modulus: BigInt) extends Cipher {
-  private implicit def _prv: PrivateKey = PrivateKey(modulus, privateKey)
+  implicit def getPrivateKey: PrivateKey = PrivateKey(modulus, privateKey)
 
-  private implicit def _pub: PublicKey = PublicKey(modulus, publicKey)
+  implicit def getPublicKey: PublicKey = PublicKey(modulus, publicKey)
 
   override def encrypt(msg: String): String = RSA.encrypt(msg)
 

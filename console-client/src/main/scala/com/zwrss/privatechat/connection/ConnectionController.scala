@@ -5,6 +5,7 @@ import java.io.InputStreamReader
 import java.io.PrintWriter
 import java.net.Socket
 
+import com.zwrss.privatechat.logging.Logging
 import play.api.libs.json.Json
 import play.api.libs.json.Writes
 
@@ -25,6 +26,7 @@ class ConnectionController(socket: Socket, var behavior: ConnectionControllerBeh
         case null =>
         // terminate
         case message =>
+          Logging.debug("Got message -  " + message)
           behavior.handle(this, message)
           continueReading()
       }
@@ -47,7 +49,10 @@ class ConnectionController(socket: Socket, var behavior: ConnectionControllerBeh
     newBehavior onEntry this
   }
 
-  def write[T: Writes](obj: T): Unit = out println (Json toJson obj)
+  def write[T: Writes](obj: T): Unit = {
+    val message = Logging.debug(Json toJson obj)
+    out println message
+  }
 
   private val onCloseCallbacks: mutable.Queue[() => Unit] = mutable.Queue.empty
 

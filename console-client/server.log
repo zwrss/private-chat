@@ -1,0 +1,86 @@
+2020/11/27 19:44:00.891 [DEBUG] ConnectionController.scala:29: Got message -  {"username":"Pawel","publicKey":{"modulus":83786591579700821259707671035381365543781294079948732849924670772611664297284644302281560749257414932193912491059476973134370331850283851777769821358505255608738837969965226807988558806060012882414095026529774522668285812023549030056022546104371288564492875908333499338191523245312215829297653574251354811137,"publicKey":65537}}
+2020/11/27 19:44:00.893 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"username":"Pawel","publicKey":{"modulus":83786591579700821259707671035381365543781294079948732849924670772611664297284644302281560749257414932193912491059476973134370331850283851777769821358505255608738837969965226807988558806060012882414095026529774522668285812023549030056022546104371288564492875908333499338191523245312215829297653574251354811137,"publicKey":65537}}
+2020/11/27 19:44:01.324 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"You are now connected to the server!","type":"Said"}
+2020/11/27 19:44:01.329 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Remember that messages send to a public chat are visible to the server!","type":"Said"}
+2020/11/27 19:44:01.329 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Messages whispered are protected and can be only read by recipient.","type":"Said"}
+2020/11/27 19:44:01.329 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","type":"Joined"}
+2020/11/27 19:44:01.344 [DEBUG] ConnectionController.scala:53: {"publicKey":{"modulus":81931937862568361573801959121095007065478574762011625243603262928885408232604472805889882829633391638388936543257934744625120056165765452106697604921402270149434593018870836785312266393549492078499899470995628840504176265877693027728401469318998729316571160053918622458477969888905164042851695510268397561083,"publicKey":65537}}
+2020/11/27 19:44:11.773 [DEBUG] ConnectionController.scala:29: Got message -  {"username":"zwrss","publicKey":{"modulus":71847919462081486347170558877707982512355636991642884676147562794261376746474009670133536991394001821442596863731877015402214821674925659318174379780191854588388538066776511258028982921331310312186158701397519432249046638738349659639795226509050358159496461702935053848252847046001555933315413003334857384687,"publicKey":65537}}
+2020/11/27 19:44:11.773 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"username":"zwrss","publicKey":{"modulus":71847919462081486347170558877707982512355636991642884676147562794261376746474009670133536991394001821442596863731877015402214821674925659318174379780191854588388538066776511258028982921331310312186158701397519432249046638738349659639795226509050358159496461702935053848252847046001555933315413003334857384687,"publicKey":65537}}
+2020/11/27 19:44:11.773 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"You are now connected to the server!","type":"Said"}
+2020/11/27 19:44:11.773 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Remember that messages send to a public chat are visible to the server!","type":"Said"}
+2020/11/27 19:44:11.773 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Messages whispered are protected and can be only read by recipient.","type":"Said"}
+2020/11/27 19:44:11.773 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","type":"Joined"}
+2020/11/27 19:44:11.773 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","type":"Joined"}
+2020/11/27 19:44:11.789 [DEBUG] ConnectionController.scala:53: {"publicKey":{"modulus":51691287748846382747072891344882914029975553476395617688518581696618664686280587275752952030708795443824003404749203724485471242895030066069578650957792712306633409096658791508085158120869584754793885829420939124867121621993984416232685746766045984985170853846837991812526977748690869804533006912953029770781,"publicKey":65537}}
+2020/11/27 19:44:14.505 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"asd","type":"Say"}
+2020/11/27 19:44:14.505 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"asd","type":"Say"}
+2020/11/27 19:44:14.524 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"asd","type":"Said"}
+2020/11/27 19:44:14.524 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"asd","type":"Said"}
+2020/11/27 19:44:14.840 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"asd","type":"Say"}
+2020/11/27 19:44:14.840 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"asd","type":"Say"}
+2020/11/27 19:44:14.841 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"asd","type":"Said"}
+2020/11/27 19:44:14.841 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"asd","type":"Said"}
+2020/11/27 19:44:15.134 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"asd","type":"Say"}
+2020/11/27 19:44:15.134 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"asd","type":"Say"}
+2020/11/27 19:44:15.134 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"asd","type":"Said"}
+2020/11/27 19:44:15.134 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"asd","type":"Said"}
+2020/11/27 19:44:17.354 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"hello","type":"Say"}
+2020/11/27 19:44:17.354 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"hello","type":"Say"}
+2020/11/27 19:44:17.354 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"hello","type":"Said"}
+2020/11/27 19:44:17.354 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"hello","type":"Said"}
+2020/11/27 19:45:13.757 [DEBUG] ConnectionController.scala:29: Got message -  {"message":null,"type":"Say"}
+2020/11/27 19:45:13.757 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":null,"type":"Say"}
+2020/11/27 19:45:13.773 [ERROR] ConnectionControllerBehavior.scala:27: Chat cannot handle {"message":null,"type":"Say"}
+2020/11/27 19:45:14.283 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","type":"Left"}
+2020/11/27 19:45:14.970 [DEBUG] ConnectionController.scala:29: Got message -  {"message":null,"type":"Say"}
+2020/11/27 19:45:14.970 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":null,"type":"Say"}
+2020/11/27 19:45:14.970 [ERROR] ConnectionControllerBehavior.scala:27: Chat cannot handle {"message":null,"type":"Say"}
+2020/11/27 19:45:26.471 [DEBUG] ConnectionController.scala:29: Got message -  {"username":"Pawel","publicKey":{"modulus":83317011401923114384379220119769770514607982637301968939159589496408621911525148403012296137510347738898971757921640759069968100940143083109364710350065441715044267834202306227384269333550770699613235197455908993305554790557844231569738050683430432165026362712522168549313782848189077696322294691192086148943,"publicKey":65537}}
+2020/11/27 19:45:26.471 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"username":"Pawel","publicKey":{"modulus":83317011401923114384379220119769770514607982637301968939159589496408621911525148403012296137510347738898971757921640759069968100940143083109364710350065441715044267834202306227384269333550770699613235197455908993305554790557844231569738050683430432165026362712522168549313782848189077696322294691192086148943,"publicKey":65537}}
+2020/11/27 19:45:26.472 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"You are now connected to the server!","type":"Said"}
+2020/11/27 19:45:26.473 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Remember that messages send to a public chat are visible to the server!","type":"Said"}
+2020/11/27 19:45:26.473 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Messages whispered are protected and can be only read by recipient.","type":"Said"}
+2020/11/27 19:45:26.474 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","type":"Joined"}
+2020/11/27 19:45:26.475 [DEBUG] ConnectionController.scala:53: {"publicKey":{"modulus":73979880723209690784467723479977057578646202590232635396222353738235559110012353183076394810586247322231783969384841995925127204866951344793381821273337008233446870511812162713228159666996432218207054158069495998388711197089495473538295638920414628716067332445562389027328975480080475463797092843078303648493,"publicKey":65537}}
+2020/11/27 19:45:46.435 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"","type":"Say"}
+2020/11/27 19:45:46.436 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"","type":"Say"}
+2020/11/27 19:45:46.436 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"","type":"Said"}
+2020/11/27 19:45:49.551 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"KJERWA","type":"Say"}
+2020/11/27 19:45:49.551 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"KJERWA","type":"Say"}
+2020/11/27 19:45:49.551 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"KJERWA","type":"Said"}
+2020/11/27 19:45:58.371 [DEBUG] ConnectionController.scala:29: Got message -  {"username":"zwrss","publicKey":{"modulus":63533216683510884186304991551664050447445280597849091626752228682269328193854993118895071430958778611577273102822945532487407625245255722188928748890591997284364181346235578159229327017677669887550176968190526508573746878184107986258377886289024007788778652488010547402905242260300264864003796469649003735599,"publicKey":65537}}
+2020/11/27 19:45:58.372 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"username":"zwrss","publicKey":{"modulus":63533216683510884186304991551664050447445280597849091626752228682269328193854993118895071430958778611577273102822945532487407625245255722188928748890591997284364181346235578159229327017677669887550176968190526508573746878184107986258377886289024007788778652488010547402905242260300264864003796469649003735599,"publicKey":65537}}
+2020/11/27 19:45:58.373 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"You are now connected to the server!","type":"Said"}
+2020/11/27 19:45:58.373 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Remember that messages send to a public chat are visible to the server!","type":"Said"}
+2020/11/27 19:45:58.374 [DEBUG] ConnectionController.scala:53: {"username":"SYSTEM","message":"Messages whispered are protected and can be only read by recipient.","type":"Said"}
+2020/11/27 19:45:58.374 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","type":"Joined"}
+2020/11/27 19:45:58.375 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","type":"Joined"}
+2020/11/27 19:45:58.375 [DEBUG] ConnectionController.scala:53: {"publicKey":{"modulus":68038102915611593498041620545586879099968842877070079125394727774424682794440327709837051334254173943013491499763530947314121235929411611090636676557714142487791768659317892770941515082147179149857700671625094756984773062749325792633999055682460634932081827162109268055904842061000820755552944642801662784801,"publicKey":65537}}
+2020/11/27 19:45:59.529 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"as","type":"Say"}
+2020/11/27 19:45:59.529 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"as","type":"Say"}
+2020/11/27 19:45:59.530 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"as","type":"Said"}
+2020/11/27 19:45:59.530 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"as","type":"Said"}
+2020/11/27 19:46:00.927 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"dHEHE","type":"Say"}
+2020/11/27 19:46:00.927 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"dHEHE","type":"Say"}
+2020/11/27 19:46:00.927 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"dHEHE","type":"Said"}
+2020/11/27 19:46:00.927 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"dHEHE","type":"Said"}
+2020/11/27 19:46:02.801 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"aSIEMANKO","type":"Say"}
+2020/11/27 19:46:02.801 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"aSIEMANKO","type":"Say"}
+2020/11/27 19:46:02.802 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"aSIEMANKO","type":"Said"}
+2020/11/27 19:46:02.802 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"aSIEMANKO","type":"Said"}
+2020/11/27 19:46:04.327 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"DURNIU","type":"Say"}
+2020/11/27 19:46:04.327 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"DURNIU","type":"Say"}
+2020/11/27 19:46:04.327 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"DURNIU","type":"Said"}
+2020/11/27 19:46:04.328 [DEBUG] ConnectionController.scala:53: {"username":"zwrss","message":"DURNIU","type":"Said"}
+2020/11/27 19:46:06.449 [DEBUG] ConnectionController.scala:29: Got message -  {"message":"JEFJskjhfdkjahfdkjshfd","type":"Say"}
+2020/11/27 19:46:06.449 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":"JEFJskjhfdkjahfdkjshfd","type":"Say"}
+2020/11/27 19:46:06.465 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"JEFJskjhfdkjahfdkjshfd","type":"Said"}
+2020/11/27 19:46:06.465 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","message":"JEFJskjhfdkjahfdkjshfd","type":"Said"}
+2020/11/27 19:46:11.154 [DEBUG] ConnectionController.scala:29: Got message -  {"message":null,"type":"Say"}
+2020/11/27 19:46:11.154 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":null,"type":"Say"}
+2020/11/27 19:46:11.154 [ERROR] ConnectionControllerBehavior.scala:27: Chat cannot handle {"message":null,"type":"Say"}
+2020/11/27 19:46:11.556 [DEBUG] ConnectionController.scala:53: {"username":"Pawel","type":"Left"}
+2020/11/27 19:46:12.175 [DEBUG] ConnectionController.scala:29: Got message -  {"message":null,"type":"Say"}
+2020/11/27 19:46:12.175 [DEBUG] ConnectionControllerBehavior.scala:20: Handling {"message":null,"type":"Say"}
+2020/11/27 19:46:12.176 [ERROR] ConnectionControllerBehavior.scala:27: Chat cannot handle {"message":null,"type":"Say"}

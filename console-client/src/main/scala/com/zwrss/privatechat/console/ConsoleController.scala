@@ -1,5 +1,6 @@
 package com.zwrss.privatechat.console
 
+import com.zwrss.privatechat.logging.Logging
 import org.fusesource.jansi.Ansi
 import org.fusesource.jansi.AnsiConsole
 
@@ -22,6 +23,7 @@ class ConsoleController(var behavior: ConsoleControllerBehavior) extends Thread 
   private val screen: mutable.Stack[String] = new mutable.Stack[String]()
 
   def println(line: String): Unit = synchronized {
+    Logging.debug(line)
     screen push line
     refreshScreen()
   }
