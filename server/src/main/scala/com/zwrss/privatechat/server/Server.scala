@@ -9,9 +9,13 @@ import com.zwrss.privatechat.server.connection.Greeting
 
 object Server {
 
-  private val port: Int = 25852
-
   def main(args: Array[String]): Unit = {
+
+    var port: Int = 25852
+
+    if (args.length >= 1) {
+      port = args.head.toInt
+    }
 
     Logging.filename = "server.log"
 
