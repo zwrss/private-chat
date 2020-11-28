@@ -2,8 +2,10 @@ package com.zwrss.privatechat.server
 
 import java.net.ServerSocket
 
-import com.zwrss.privatechat.server.controller.SimpleController
-import com.zwrss.privatechat.server.controller.SocketWrapper
+import com.zwrss.privatechat.cipher.RSA
+import com.zwrss.privatechat.connection.ConnectionController
+import com.zwrss.privatechat.logging.Logging
+import com.zwrss.privatechat.server.connection.Greeting
 
 object Server {
 
@@ -11,14 +13,17 @@ object Server {
 
   def main(args: Array[String]): Unit = {
 
+    Logging.filename = "server.log"
+
     val serverSocket = new ServerSocket(port)
 
     println("Server started, waiting for connections...")
 
     while (true) {
-      val socketWrapper = new SocketWrapper(serverSocket.accept(), SimpleController)
-      println("Got connection!")
-      socketWrapper.start()
+      val socket = serverSocket.accept()
+      val remote = new ConnectionController(socket, new Greeting(RSA.random(1024)))
+      println(s"Got connection [$socket]")
+      remote.start()
     }
 
   }

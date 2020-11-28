@@ -16,7 +16,7 @@ class ChatInitialization(username: String, console: ConsoleController, rsa: RSA)
 
   override protected def _handle: PartialFunction[(ConnectionController, Welcome), Unit] = {
     case (remote, message) =>
-      console setBehavior new ChatConsole(username, remote, message.publicKey)
+      console setBehavior new ChatConsole(username, remote, rsa, message.publicKey)
       remote setBehavior new ChatConnection(console, rsa)
   }
 }
