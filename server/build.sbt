@@ -11,3 +11,9 @@ libraryDependencies ++= Seq(
 )
 
 enablePlugins(JavaAppPackaging)
+
+dockerEntrypoint := Seq("bin/private-chat-server")
+
+dockerExposedPorts := Seq(8888)
+
+dockerEnvVars := Map("PRIVATECHAT_SERVER_PORT" -> "8888")

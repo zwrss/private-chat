@@ -13,6 +13,10 @@ object Server {
 
     var port: Int = 25852
 
+    sys.env.get("PRIVATECHAT_SERVER_PORT").foreach { portString =>
+      port = portString.toInt
+    }
+
     if (args.length >= 1) {
       port = args.head.toInt
     }
@@ -21,7 +25,7 @@ object Server {
 
     val serverSocket = new ServerSocket(port)
 
-    println("Server started, waiting for connections...")
+    Logging.info(s"Server started, waiting for connections on port $port...")
 
     while (true) {
       val socket = serverSocket.accept()
