@@ -1,0 +1,8 @@
+server:
+  host: zwrss.pl
+  port: 8888
+logging:
+  default:
+    level: DEBUG
+    appender: FILE
+    file: client.log

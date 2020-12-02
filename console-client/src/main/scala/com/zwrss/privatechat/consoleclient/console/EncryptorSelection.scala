@@ -12,7 +12,7 @@ class EncryptorSelection(host: String, port: Int, username: String) extends Cons
 
   override def onEntry(console: ConsoleController): Unit = {
     // todo to move to onInput
-    console println "Generating RSA key and requesting handshake"
+    console println s"Generating RSA key and requesting handshake to $host:$port"
     val rsa = RSA.random(1024)
     val remote = new ConnectionController(new Socket(host, port), new ChatInitialization(username, console, rsa))
     remote.start()

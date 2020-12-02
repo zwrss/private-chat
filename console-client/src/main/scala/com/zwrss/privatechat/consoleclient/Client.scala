@@ -1,5 +1,8 @@
 package com.zwrss.privatechat.consoleclient
 
+import java.io.File
+
+import com.zwrss.privatechat.configuration.PropertyStoreBuilder
 import com.zwrss.privatechat.console.ConsoleController
 import com.zwrss.privatechat.consoleclient.console.NameCollection
 import com.zwrss.privatechat.logging.Logging
@@ -9,15 +12,14 @@ object Client {
 
   def main(args: Array[String]): Unit = {
 
-    var port: Int = 25852
-    var host: String = "localhost"
+    val properties = PropertyStoreBuilder.withArgs(args).withFile(new File("config.yml")).withEnvVariables().build
+    // todo injecting properties
 
-    if (args.length >= 2) {
-      host = args.head
-      port = args(1).toInt
-    }
 
-    Logging.filename = "client.log"
+    val port: Int = properties.get[Int]("server.port") getOrElse 25852
+    val host: String = properties.get[String]("server.host") getOrElse "localhost"
+
+    Logging.filename = properties.get[String]("logging.default.filename") getOrElse "client.log" // todo pass configuration
 
 
     val console = new ConsoleController(new NameCollection(host, port))
