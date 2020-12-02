@@ -1,10 +1,10 @@
 package com.zwrss.privatechat.logging
 
-import java.io.FileWriter
 import java.io.PrintWriter
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+// todo fancy logging
 object Logging {
 
   object Level extends Enumeration {
@@ -23,9 +23,7 @@ object Logging {
 
   private def time: String = dateFormat format LocalDateTime.now()
 
-  var filename: String = "application.log"
-
-  private lazy val writer: PrintWriter = new PrintWriter(new FileWriter(filename, !overwrite), true)
+  private lazy val writer: PrintWriter = new PrintWriter(System.out, true) // todo this is only for server - docker tests purpose
 
   private def println[T](level: Level.Value, pattern: String, obj: T): T = {
     if (level.id <= loggingLevel.id) synchronized {

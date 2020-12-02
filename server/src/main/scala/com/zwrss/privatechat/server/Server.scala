@@ -7,6 +7,7 @@ import com.zwrss.privatechat.connection.ConnectionController
 import com.zwrss.privatechat.logging.Logging
 import com.zwrss.privatechat.server.connection.Greeting
 
+// todo fancy configuration reading
 object Server {
 
   def main(args: Array[String]): Unit = {
@@ -20,8 +21,6 @@ object Server {
     if (args.length >= 1) {
       port = args.head.toInt
     }
-
-    Logging.filename = "server.log"
 
     val serverSocket = new ServerSocket(port)
 
