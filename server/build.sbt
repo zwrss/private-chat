@@ -11,6 +11,11 @@ libraryDependencies ++= Seq(
   "org.yaml" % "snakeyaml" % "1.27"
 )
 
+libraryDependencies ++= {
+  if (sys.props.get("submodule") contains "true") Seq()
+  else Seq("com.github.zwrss" %% "private-chat-scala-sdk" % "0.1")
+}
+
 enablePlugins(JavaAppPackaging)
 
 dockerEntrypoint := Seq("bin/private-chat-server")

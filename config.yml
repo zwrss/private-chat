@@ -1,0 +1,8 @@
+server:
+  host: localhost
+  port: 25852
+logging:
+  default:
+    level: DEBUG
+    appender: FILE
+    file: client.log

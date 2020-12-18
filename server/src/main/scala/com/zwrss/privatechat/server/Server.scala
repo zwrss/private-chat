@@ -14,7 +14,16 @@ object Server {
 
   def main(args: Array[String]): Unit = {
 
-    val properties = PropertyStoreBuilder.withArgs(args).withFile(new File("config.yml")).withEnvVariables().build
+    val properties = {
+      val configFile: Option[File] = {
+        val f = new File("config.yml")
+        if (f.exists() && f.isFile && f.canRead) Option(f) else None
+      }
+      var builder = PropertyStoreBuilder.withArgs(args)
+      configFile.foreach(file => builder = builder.withFile(file))
+      builder = builder.withEnvVariables()
+      builder.build
+    }
 
     val port: Int = properties.get[Int]("server.port") getOrElse 25852
 
