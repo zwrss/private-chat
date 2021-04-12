@@ -1,6 +1,6 @@
 server:
-  host: zwrss.pl
-  port: 8888
+  host: localhost
+  port: 25852
 logging:
   default:
     level: DEBUG

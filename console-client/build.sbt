@@ -4,12 +4,13 @@ name := "private-chat-client"
 
 version := "0.1"
 
-scalaVersion := "2.13.3"
+scalaVersion := "2.13.5"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.9.1",
   "org.yaml" % "snakeyaml" % "1.27",
-  "org.fusesource.jansi" % "jansi" % "2.0.1"
+  "org.fusesource.jansi" % "jansi" % "2.0.1",
+  "org.jline" % "jline" % "3.19.0"
 )
 
 libraryDependencies ++= {

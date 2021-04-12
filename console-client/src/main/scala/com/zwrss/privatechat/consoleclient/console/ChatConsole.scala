@@ -18,7 +18,6 @@ class ChatConsole(username: String, remote: ConnectionController, rsa: RSA, remo
 
   override def onEntry(console: ConsoleController): Unit = {
     console setCommandPrompt s"$username: "
-    console.refreshScreen()
   }
 
   private val WHISPER = "/w ([^ ]*) (.*)".r
@@ -28,7 +27,6 @@ class ChatConsole(username: String, remote: ConnectionController, rsa: RSA, remo
       remote write[ChatCommand] GetPubKey(user)
       remote setBehavior new Whispering(console, rsa, user, message)
       console println (s"Whispered to $user: $message")
-      console.refreshScreen()
     case _ =>
       remote write[ChatCommand] Say(encryptor encrypt line)
   }

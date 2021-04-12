@@ -10,7 +10,6 @@ class NameCollection(host: String, port: Int) extends ConsoleControllerBehavior 
   }
 
   override def onInput(line: String, console: ConsoleController): Unit = {
-    console.refreshScreen()
     console setBehavior new EncryptorSelection(host, port, line)
   }
 

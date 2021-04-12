@@ -1,15 +1,15 @@
 package com.zwrss.privatechat.console
 
-import com.zwrss.privatechat.logging.Logging
-import org.fusesource.jansi.Ansi
-import org.fusesource.jansi.AnsiConsole
-
-import scala.collection.mutable
-import scala.io.StdIn
+import org.jline.reader.impl.LineReaderImpl
+import org.jline.terminal.TerminalBuilder
 
 class ConsoleController(var behavior: ConsoleControllerBehavior) extends Thread {
 
-  private lazy val ansi = Ansi.ansi()
+  private lazy val reader = {
+    val value = new LineReaderImpl(TerminalBuilder.terminal())
+    value.setOpt(org.jline.reader.LineReader.Option.ERASE_LINE_ON_FINISH)
+    value
+  }
 
   private var commandPrompt: String = ">"
 
@@ -18,39 +18,23 @@ class ConsoleController(var behavior: ConsoleControllerBehavior) extends Thread 
     newBehavior onEntry this
   }
 
-  def setCommandPrompt(prompt: String) = commandPrompt = prompt
-
-  private val screen: mutable.Stack[String] = new mutable.Stack[String]()
-
-  def println(line: String): Unit = synchronized {
-    Logging.debug(line)
-    screen push line
-    refreshScreen()
+  def setCommandPrompt(prompt: String) = {
+    commandPrompt = prompt
+    reader.setPrompt(prompt)
   }
 
-  def refreshScreen(): Unit = synchronized {
-    var message = Ansi.ansi.saveCursorPosition().cursorUpLine().cursorToColumn(5000).eraseScreen(Ansi.Erase.BACKWARD).cursorToColumn(0)
-    if (screen.nonEmpty) {
-      message = message.a(screen.head)
-      screen.tail.foreach(line => message = message.cursorUpLine().a(line))
-    }
-    message = message.cursorDown(screen.size + 1).restoreCursorPosition()
-    print(message)
+  def println(line: String): Unit = {
+    reader.printAbove(line)
   }
 
   override def run(): Unit = {
-    AnsiConsole.systemInstall()
-    print(ansi.eraseScreen())
 
     behavior onEntry this
 
-    while(behavior.isAlive) {
-      print(commandPrompt)
-      val input = StdIn.readLine()
+    while (behavior.isAlive) {
+      val input = reader.readLine(commandPrompt)
       behavior.onInput(input, this)
     }
 
-    print(ansi.eraseLine())
-    AnsiConsole.systemUninstall()
   }
 }
