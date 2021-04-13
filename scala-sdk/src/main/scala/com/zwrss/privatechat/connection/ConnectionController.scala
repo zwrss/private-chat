@@ -1,14 +1,14 @@
 package com.zwrss.privatechat.connection
 
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.io.PrintWriter
-import java.net.Socket
-
 import com.zwrss.privatechat.logging.Logging
 import play.api.libs.json.Json
 import play.api.libs.json.Writes
 
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.io.PrintWriter
+import java.net.Socket
+import java.net.SocketException
 import scala.annotation.tailrec
 import scala.collection.mutable
 
@@ -28,7 +28,7 @@ class ConnectionController(socket: Socket, var behavior: ConnectionControllerBeh
         case message =>
           Logging.debug(s"Got message [$socket]: " + message)
           behavior.handle(this, message)
-          continueReading()
+          if (behavior.isAlive) continueReading()
       }
 
       behavior onEntry this
@@ -37,7 +37,10 @@ class ConnectionController(socket: Socket, var behavior: ConnectionControllerBeh
 
       behavior onExit this
 
+    } catch {
+      case e: SocketException => // do nothing
     } finally {
+      Logging.debug(s"Disconnected [$socket]")
       close()
     }
 

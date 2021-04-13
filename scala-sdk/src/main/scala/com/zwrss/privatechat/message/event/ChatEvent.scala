@@ -27,7 +27,7 @@ object ChatEvent {
 
   // cuz of deserialization
   private val companions: Seq[ChatEventCompanion[_ <: ChatEvent]] = Seq(
-    Joined, Left, Said, Whispered, SharedPubKey
+    Joined, Left, Said, Whispered, SharedPubKey, UserList
   )
 
   implicit def format: Format[ChatEvent] = new Format[ChatEvent] {

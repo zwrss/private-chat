@@ -10,11 +10,13 @@ import com.zwrss.privatechat.message.command.ChatCommand
 import com.zwrss.privatechat.message.command.GetPubKey
 import com.zwrss.privatechat.message.command.Say
 import com.zwrss.privatechat.message.command.Whisper
+import com.zwrss.privatechat.message.command.Who
 import com.zwrss.privatechat.message.event.ChatEvent
 import com.zwrss.privatechat.message.event.Joined
 import com.zwrss.privatechat.message.event.Left
 import com.zwrss.privatechat.message.event.Said
 import com.zwrss.privatechat.message.event.SharedPubKey
+import com.zwrss.privatechat.message.event.UserList
 import com.zwrss.privatechat.message.event.Whispered
 
 object Chat {
@@ -41,9 +43,6 @@ class Chat(username: String, rsa: RSA, remotePublicKey: PublicKey) extends Conne
   override def onEntry(remote: ConnectionController): Unit = {
     if (Chat.users.exists(_.username == username)) sys.error(s"$username already connected!")
     Chat.users :+= User(username, remote, remotePublicKey)
-    remote write[ChatEvent] Said("SYSTEM", encryptor encrypt "You are now connected to the server!")
-    remote write[ChatEvent] Said("SYSTEM", encryptor encrypt "Remember that messages send to a public chat are visible to the server!")
-    remote write[ChatEvent] Said("SYSTEM", encryptor encrypt "Messages whispered are protected and can be only read by recipient.")
     Chat broadcast Joined(username)
     remote.onClose { () =>
       Chat.users = Chat.users.filterNot(_.remote == remote)
@@ -60,6 +59,8 @@ class Chat(username: String, rsa: RSA, remotePublicKey: PublicKey) extends Conne
       Chat.users.find(_.username == u).foreach { user =>
         user.remote write[ChatEvent] Whispered(username, message)
       }
+    case (user, Who) =>
+      user write[ChatEvent] UserList(Chat.users.map(_.username))
     case (remote, GetPubKey(username)) =>
       Chat.users.find(_.username == username).foreach { user =>
         remote write[ChatEvent] SharedPubKey(username, user.publicKey)

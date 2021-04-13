@@ -27,7 +27,7 @@ object ChatCommand {
 
   // cuz of deserialization
   private val companions: Seq[ChatCommandCompanion[_ <: ChatCommand]] = Seq(
-    Say, Whisper, GetPubKey
+    Say, Whisper, GetPubKey, WhoCompanion
   )
 
   implicit def format: Format[ChatCommand] = new Format[ChatCommand] {

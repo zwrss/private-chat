@@ -36,5 +36,7 @@ class ConsoleController(var behavior: ConsoleControllerBehavior) extends Thread 
       behavior.onInput(input, this)
     }
 
+    System.exit(0)
+
   }
 }

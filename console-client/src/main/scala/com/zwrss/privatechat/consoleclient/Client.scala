@@ -1,11 +1,11 @@
 package com.zwrss.privatechat.consoleclient
 
-import java.io.File
-
 import com.zwrss.privatechat.configuration.PropertyStoreBuilder
 import com.zwrss.privatechat.console.ConsoleController
 import com.zwrss.privatechat.consoleclient.console.NameCollection
 import com.zwrss.privatechat.logging.Logging
+
+import java.io.File
 
 
 object Client {
