@@ -23,9 +23,12 @@ object Logging {
 
   private def time: String = dateFormat format LocalDateTime.now()
 
-  var filename: String = "application.log"
+  var filename: Option[String] = None
 
-  private lazy val writer: PrintWriter = new PrintWriter(new FileWriter(filename, !overwrite), true)
+  private lazy val writer: PrintWriter = filename match {
+    case Some(f) => new PrintWriter(new FileWriter(f, !overwrite), true)
+    case _ => new PrintWriter(System.out)
+  }
 
   private def println[T](level: Level.Value, pattern: String, obj: T): T = {
     if (level.id <= loggingLevel.id) synchronized {
@@ -35,6 +38,7 @@ object Logging {
         else s"${stackTrace(3).getFileName}:${stackTrace(3).getLineNumber}"
       }
       writer.println(s"$time [$level] $fileName: " + pattern.format(obj.toString))
+      writer.flush()
     }
     obj
   }
